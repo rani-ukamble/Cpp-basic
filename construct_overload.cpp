@@ -6,7 +6,7 @@ class complex
 {
 	float x,y;
 	public:
-	complex();//constructor-default
+	complex(){};//constructor-default
 	complex(float a)
 	{
 		x=y=a;
@@ -31,7 +31,7 @@ complex sum(complex c1 ,complex c2)//friend
 
 void show(complex c)
 {
-	cout<<c.x<<" + i "<<c.y<<endl;
+	cout<<c.x<<" + j "<<c.y<<endl;
 }
 
 int main()
@@ -44,4 +44,6 @@ int main()
 	cout<<"A = "<<endl; show(A);
     cout<<"B = "<<endl; show(B);
 	cout<<"C = "<<endl; show(C);
+	
+	show(C);
 }
