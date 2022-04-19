@@ -1,49 +1,41 @@
-#include <iostream>
-#include <cstdio>
+//Program to add two complex numbers using friend function 
+
+#include<iostream>
 using namespace std;
 
 class complex
 {
-	float x,y;
-	public:
-	complex(){};//constructor-default
-	complex(float a)
-	{
-		x=y=a;
-	}
-	complex(float real, float imag)
-	{
-		x=real;
-		y=imag;
-	}
-	
-	friend complex sum(complex,complex);
-	friend void show(complex);
+float real,imag;
+public:
+void set()
+{
+cout<<"\nenter real and imag part ";
+cin>>real>>imag;
+}
+friend complex sum(complex,complex);
+void display();
 };
 
-complex sum(complex c1 ,complex c2)//friend
+void complex::display()
 {
-	complex c3;
-	c3.x=c1.x=+c2.x;
-	c3.y=c1.y+c2.y;
-	return(c3);	
+cout<<"\nthe sum of complex num is "<<real<<"+i"<<imag;
 }
 
-void show(complex c)
+complex sum(complex a,complex b)
 {
-	cout<<c.x<<" + j "<<c.y<<endl;
+complex t;
+t.real=a.real + b.real;
+t.imag=a.imag + b.imag;
+return t;
 }
 
 int main()
 {
-	complex A(2.7,3.5);
-	complex B(1.6);
-	complex C;
-	
-	C=sum(A,B);
-	cout<<"A = "<<endl; show(A);
-    cout<<"B = "<<endl; show(B);
-	cout<<"C = "<<endl; show(C);
-	
-	show(C);
+complex a,b,c;
+a.set();
+b.set();
+c=sum(a,b);
+c.display();
+
+return(0);
 }
